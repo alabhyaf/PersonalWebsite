@@ -1,0 +1,160 @@
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 1600px;
+}
+
+body {
+  background-image: -webkit-linear-gradient(top, #3c82c8, #3a80be);
+  background-image: linear-gradient(to bottom, #3c82c8, #3a80be);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 1600px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#main {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+div.content {
+  position: relative;
+  margin: 0 auto;
+  z-index: 10;
+  padding-top: 8em;
+}
+
+.column__wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 32em;
+}
+
+.waves {
+  position: absolute;
+  width: 102%;
+  top: -1em;
+  left: -1%;
+  fill: #71d6ef;
+  z-index: -1;
+}
+@media all and (max-width: 600px) {
+  .waves {
+    top: 0em;
+  }
+}
+
+#footer_wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  padding-bottom: 44.72225%;
+}
+
+#footer_inner_wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer__content {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  z-index: 10;
+}
+
+.swimtim {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  padding-bottom: 133.33%;
+  z-index: -1;
+  top: 1em;
+}
+
+.hair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bubble {
+  top: 12em;
+  position: absolute;
+  fill: rgba(255, 255, 255, 0.5);
+  stroke: white;
+  stroke-width: 2;
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+}
+
+.fish1 {
+  position: absolute;
+  left: -10%;
+  top: 15em;
+  width: 2em;
+  height: auto;
+}
+.fish1 path {
+  fill: #FFA033;
+}
+
+.fish2 {
+  position: absolute;
+  top: 25em;
+  right: -10%;
+  width: 3em;
+  height: auto;
+  z-index: -1;
+}
+
+#LeftArm {
+  -webkit-transform-origin: 100% 30% 0;
+          transform-origin: 100% 30% 0;
+}
+
+#RightArm {
+  -webkit-transform-origin: 5% 10% 0;
+          transform-origin: 5% 10% 0;
+}
