@@ -9,6 +9,9 @@ app.get('/', (request, response) => {
   response.sendFile(__dirname +'/index-developer-vertical-scroll.html');
 })
 
+app.get('/twitter', (request, response) => {  
+  response.sendFile(__dirname +'/case-study-big-data-project.html');
+})
 app.listen(port, (err) => {  
   if (err) {
     return console.log('something bad happened', err)
