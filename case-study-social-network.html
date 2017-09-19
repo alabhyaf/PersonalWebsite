@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png">
+
+    <!-- Title -->
+    <title>Social Network with heterogeneous backends</title>
+
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/plugins/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="assets/plugins/slick-carousel/slick/slick.css" />
+
+    <!-- CSS Icons -->
+    <link rel="stylesheet" href="assets/css/themify-icons.css" />
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css" />
+
+    <!-- CSS Base -->
+    <link id="theme" rel="stylesheet" href="assets/css/themes/theme-navyBlue.min.css" />
+
+</head>
+
+<body class="navigation-panel page-scrolling">
+
+<!-- Loader -->
+<div id="page-loader">
+    <svg class="loader" viewBox="0 0 28 28">
+        <circle cx="14" cy="14" r="12" stroke-width="2"></circle>
+    </svg>
+</div>
+
+<!-- Content -->
+<div id="content" data-scheme="light">
+
+    <!-- Section - Image -->
+    <section class="section section-case-study-header text-center light" data-scheme="light">
+        <!-- BG Image -->
+        <div class="bg-image-container bg-image-fixed">
+            <img src="assets/img/projects/social-network/social_network.png" alt="">
+        </div>
+    </section>
+
+    <!-- Section - Description -->
+    <section class="section light" data-scheme="light">
+
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="container-slim">
+                <h1 class="display-4 mb-0">Social Netework with Heterogenous backends</h1>
+                <p class="lead text-muted">MySQL, MongoBD, HBase</p>
+                <p class="lead">This project will encompass the following learning objectives:</p>
+
+                <ul>
+                    <li> Experiment with the provisioning, configuration and management of cloud resources to provide several NoSQL databases and a Database-as-a-Service (DBaaS) cloud offering.
+                    <li> Compare the pros and cons of SQL and NoSQL databases as well as the applications domain they are most suitable in.
+                    <li> Configure, populate and deploy both SQL and NoSQL databases in a social network web service context.
+                    <li> Design effective database schema based on the requirement of an application.
+                    <li> Practice writing efficient database queries using the Java API.
+                    <li> Integrate together SQL and NoSQL databases to work on complex applications to build a social networking website.
+                    <li> Respond to complex queries that span multiple databases.
+                    <li> Experiment whether to adopt ETL for the dataset provided.
+                </ul>
+            </div>
+            <!-- Image -->
+            <!--<div class="container-wide pt-5 pb-5">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-6">-->
+                        <!--<figure>-->
+                            <!--<img src="assets/img/photos/manager/project01.jpg" class="figure-img rounded" alt="">-->
+                            <!--<figcaption class="figure-caption">A caption for the above image.</figcaption>-->
+                        <!--</figure>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6">-->
+                        <!--<figure>-->
+                            <!--<img src="assets/img/photos/manager/project02.jpg" class="figure-img rounded" alt="">-->
+                            <!--<figcaption class="figure-caption">A caption for the above image.</figcaption>-->
+                        <!--</figure>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!-- Text -->
+            <div class="container-slim">
+                <hr class="hr-lg">
+                <div class="row">
+                    <h1 class = "text-primary">Architectural Overview</h1>
+                    Generally speaking, a modern social networking site, at least, needs to store and process 3 kinds of data - user profiles, user activities, and a big dataset to be analyzed.
+                    <ul>
+                        <li>User Profiles</li>
+                        <ul>
+                            <li>User Authentication System (such as a Single-Sign-On or SSO)</li>
+                            <li>User Info / Profile</li>
+                            <li>Action Log</li>
+                            <li>Social Graph of the User: follower, followee, family etc.</li>
+                        </ul>
+                        <li>User Activity System - All user generated media</li>
+
+                        <li>Big Data Analytics System</li>
+                        <ul>
+                            <li>Search System</li>
+                            <li>Recommender System</li>
+                            <li>User Behaviour Analysis</li>
+                        </ul>
+                    </ul>
+                    <p>To accomplish the requirements the eagle-eye view of out architecture is as follows:</p>
+                    <!--Image-->
+                    <div class=" container-slim row justify-content-md-center">
+                        <div class="col-md-12 justify-content-md-center">
+                            <figure>
+                                <img src="assets/img/projects/social-network/arch.png" class="figure-img rounded" alt="">
+                                <figcaption class="figure-caption justify-content-md-center">Basic Architecture</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-lg">
+                <h1 class = "text-primary">Implementation</h1>
+                <h4>RDS : User Authentication</h4>
+                <p>
+                    For user-authentication we used the RDS service provided by AWS. The main advantage of RDS is that the service will
+                    manage the database on behalf of the user, including the upgrading of the database software and backups,
+                    during user-specified maintenance windows. Although we would compromising the fine-grained control over deployment of the database.
+                    <br>
+                    <br>
+                    For authentication, our schema was simple username and paswoord columns with username as the primary key.
+                </p>
+
+                <h4>HBase : Graph Analysis</h4>
+                <p>
+                    HBase is naturally suitable for storing a social graph. It's massively scalable,
+                    well-suited to the graphical data model, and supports multi-hop querying.
+                    As HBase is a column-based database, it provides good performance for graph analysis.
+                    <br><br>
+                    We use the HBase database to store the follower - followee relationship. The schema was each username as the row key and a
+                    string of followers in another column. To find the followers of a user I just found the user in the database.
+                </p>
+
+                <h4>MongoDB : User Profile</h4>
+                <p>
+                    MongoDB is a document oriented database and hence naturally aligned to store data structured as a profile because there
+                    is no fixed schema and users aka documents are related to each other. Furthermore, the document oriented model makes MongoDB very easy to scale out in distributed servers.
+                    The query language of Mongo has object-oriented features and also supports a sequential programming structure.
+                    It can realize almost all query functions of a relational database. Indexing is also supported by Mongo. Also, we can create text based indexes on MongoDB.
+                    <br><br>
+                    To retrieve something like comments of a user, it is wise to create indexes. Refer this <a href="https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/">link</a>.
+                </p>
+
+                <h4>Recommendation Engine</h4>
+                <p>
+                    Successful recommendations are able to discover true user preferences.
+                    Commodities recommendation in online shopping such as Amazon tracks items that users browse,
+                    put in shopping carts or purchase. The next time a user logs in to the website, commodities
+                    that the user appreciates will already be presented on the front page. Reddit.com would ask
+                    users to rate some websites and is able to recommend links based on a user's rating results.
+                    Other recommendation systems include friends recommendation on Facebook, Google's AdWords, content
+                    recommendation on Tastekid.com etc. These recommendation systems are the right choice to realize
+                    two goals - bringing users the content they are most interested in and delivering producers' information
+                    to their target clients.<br><br>
+
+                    In this project I implemented a very simple and yet successful recommendation model,
+                    <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative Filtering</a>. We recommend friends to a user with the Friend-of-friend strategy.
+                </p>
+
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<!-- Content / End -->
+
+<!-- Window - Message -->
+<div id="message-window" class="window window-primary">
+    <svg class="window-background" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
+    <div class="window-inner">
+        <section class="section dark">
+            <div class="section-content">
+                <div class="container">
+                    <!-- Section Header -->
+                    <div class="section-header">
+                        <div class="section-header-content">
+                            <span class="typing">I am waiting for a message from you :)</span>
+                        </div>
+                    </div>
+                    <!-- Section Content -->
+                    <form class="contact-form form-text"
+                          data-message-error="Opps... Something went wrong - please try again later"
+                          data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate>
+                        <div class="form-group">Hello! My name is <input name="name" type="text" class="form-control-text" required> and here is my message:</div>
+                        <div class="form-group"><textarea name="message" cols="30" rows="4" class="form-control-text" required></textarea></div>
+                        <div class="form-group">I will left you my e-mail - please reply: <input name="email" type="email" class="form-control-text" required></div>
+                        <button class="btn btn-white btn-lg">Send message!</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Window Toggle - Message -->
+<button class="window-toggle" data-target="#message-window"><i class="fa fa-comments"></i><i class="fa fa-times"></i></button>
+
+<!-- Modal / Video -->
+<div class="modal modal-video fade" id="modalVideo" role="dialog">
+    <button class="close" data-dismiss="modal"></button>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <iframe height="500"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- JS Plugins -->
+<script src="assets/plugins/jquery/dist/jquery.min.js"></script>
+<script src="assets/plugins/jquery.appear/jquery.appear.js"></script>
+<script src="assets/plugins/tether/dist/js/tether.min.js"></script>
+<script src="assets/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/plugins/jquery.scrollto/jquery.scrollTo.min.js"></script>
+<script src="assets/plugins/jquery.localscroll/jquery.localScroll.min.js"></script>
+<script src="assets/plugins/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/plugins/masonry-layout/dist/masonry.pkgd.min.js"></script>
+<script src="assets/plugins/slick-carousel/slick/slick.min.js"></script>
+<script src="assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="assets/plugins/typed.js/dist/typed.min.js"></script>
+<script src="assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+<script src="assets/plugins/snapsvg/dist/snap.svg-min.js"></script>
+<script src="assets/plugins/isotope-layout/dist/isotope.pkgd.min.js"></script>
+
+<!-- JS Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRMEkSrFLFkLKHyLVwT0DLLTqcUhUUZdM"></script>
+
+<!-- JS Core -->
+<script src="assets/js/core.js"></script>
+
+</body>
+
+</html>
