@@ -12,6 +12,14 @@ app.get('/', (request, response) => {
 app.get('/twitter', (request, response) => {  
   response.sendFile(__dirname +'/case-study-big-data-project.html');
 })
+
+app.get('/kafka-samza', (request, response) => {  
+  response.sendFile(__dirname +'/case-study-kafka-samza-project.html');
+})
+
+app.get('/hetro-backends', (request, response) => {  
+  response.sendFile(__dirname +'/case-study-social-network.html');
+})
 app.listen(port, (err) => {  
   if (err) {
     return console.log('something bad happened', err)
